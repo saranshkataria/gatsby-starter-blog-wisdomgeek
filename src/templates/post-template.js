@@ -4,6 +4,15 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumb';
+import RecentPosts from '../components/posts/recent-posts';
+
+const columnStyle = {};
+const containerStyle = {
+  display: `flex`,
+  flexDirection: `row`,
+  justifyContent: `space-between`,
+  width: `100%`,
+};
 
 const PostTemplate = ({ data }) => {
   const {
@@ -17,16 +26,22 @@ const PostTemplate = ({ data }) => {
   return (
     <Layout>
       <Breadcrumb author={authors[0]} postDate={date} categories={categories} />
-      <article>
-        <Image fluid={image.childImageSharp.fluid} />
-        <div>
-          <span>{categories}</span>
-          <h2>{title}</h2>
-          <p>{date}</p>
+      <div style={containerStyle}>
+        <div style={columnStyle}>
+          <article>
+            <Image fluid={image.childImageSharp.fluid} />
+            <div>
+              <span>{categories}</span>
+              <h2>{title}</h2>
+              <p>{date}</p>
+            </div>
+            <MDXRenderer>{body}</MDXRenderer>
+          </article>
         </div>
-        <MDXRenderer>{body}</MDXRenderer>
-      </article>
-      <article></article>
+        <div style={columnStyle}>
+          <RecentPosts />
+        </div>
+      </div>
     </Layout>
   );
 };

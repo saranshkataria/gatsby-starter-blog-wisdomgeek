@@ -7,7 +7,7 @@ import {
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faSlash } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import Footer from './footer';
 import Header from './header';
@@ -19,7 +19,8 @@ library.add(
   faInstagram,
   faLinkedin,
   faYoutube,
-  faChevronRight
+  faChevronRight,
+  faSlash
 );
 
 const pageStyles = {
